@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Validator;
 use App\Models\User;
+use App\Models\Pharmacy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -120,6 +121,8 @@ class AuthController extends Controller
             'user' => auth()->user()
         ]);
     }
+
+ 
 
  
 

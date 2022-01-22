@@ -18,9 +18,10 @@ class UserAuthenticated
     {
         if( Auth::check() )
         {
+            
             // if user admin take him to his dashboard
             if ( Auth::user()->isAdmin() ) {
-                 return redirect(route('admin_dashboard'));
+                 return ('your not allowed to add pharmacy');
             }
 
             // allow user to proceed with request

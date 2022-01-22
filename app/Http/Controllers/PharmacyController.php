@@ -11,11 +11,11 @@ use File;
 use Illuminate\Support\Facades\DB;
 class PharmacyController extends Controller
 {
-  
-    
-    
+
+
     public function add_pharmacy(Request $request)
     {       
+        //return Auth::user()->role;
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|between:2,30',
             'mapLocation' => 'required|string',
@@ -44,6 +44,10 @@ class PharmacyController extends Controller
         ], 201);
     
     }
+  
+    
+    
+  
 
     public function add_image(Request $request)
     {
