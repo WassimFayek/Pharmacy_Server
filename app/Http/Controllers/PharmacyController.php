@@ -1,21 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
-use App\Models\Pharmacy;
-use App\Models\Image;
-use App\Models\contact_information;
-use Illuminate\Support\Str;
+
 use File;
+use App\Models\Image;
+use App\Models\Pharmacy;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\contact_information;
+use Illuminate\Support\Facades\Validator;
+
 class PharmacyController extends Controller
 {
-
-
     public function add_pharmacy(Request $request)
-    {       
-        //return Auth::user()->role;
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|between:2,30',
             'mapLocation' => 'required|string',
@@ -34,7 +33,6 @@ class PharmacyController extends Controller
         $user = Pharmacy::create(array_merge(
             $validator->validated(),
            
-            
         ));
       
         return response()->json([
@@ -44,10 +42,6 @@ class PharmacyController extends Controller
         ], 201);
     
     }
-  
-    
-    
-  
 
     public function add_image(Request $request)
     {
@@ -142,14 +136,11 @@ class PharmacyController extends Controller
         $pharmacy->delivery = $request->delivery;
         $pharmacy->save();
 
-
         return response()->json([
             'status' => true, 
             'message' => "This record successfully updated"]);
         
     }
-
-
 
     public function searchPharmacy(Request $request){
    

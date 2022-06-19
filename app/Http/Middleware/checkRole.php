@@ -16,13 +16,9 @@ class checkRole
      */
     public function handle(Request $request, Closure $next,$roles)
     {
-       
-      // if(empty($roles)) $roles = ['admin'];
-
-      //  foreach($roles as $role) {
         if($request->user()->role === $roles) { 
                 return $next($request); 
-            //} 
+        
         } 
         return response()->json("unauthorized");
     }
